@@ -15,7 +15,7 @@ import streamlit as st
 from PIL import Image
 
 
-pickle_in = open('classifier.pkl', 'rb')
+pickle_in = open(r'/content/classifier.pkl', 'rb')
 classifier = pickle.load(pickle_in)
 
 def welcome():
@@ -56,23 +56,23 @@ def main():
     st.markdown(html_temp, unsafe_allow_html = True)
 
 
-    a = int(input("Please enter your age"))
-    b = int(input("Enter 1 if you have diabetes and 0 otherwise"))
-    c = int(input("Enter 1 if you have blood pressure problems and 0 otherwise"))
-    d = int(input("Enter 1 if you have had any transplants and 0 otherwise"))
-    e = int(input("Enter 1 if you have any chronic diseases and 0 otherwise"))
-    f = int(input("Enter your height in centimeters"))
-    g = int(input("Enter your weight in kilograms"))
-    h = int(input("Enter 1 if you have any allergies and 0 otherwise"))
-    i = int(input("Enter 1 if you have a family history of cancer and 0 otherwise"))
-    j = int(input("Enter the number of major surgeries you have undergone"))
+    a = st.number_input("Please enter your age"))
+    b = st.number_input("Enter 1 if you have diabetes and 0 otherwise"))
+    c = st.number_input("Enter 1 if you have blood pressure problems and 0 otherwise"))
+    d = st.number_input(input("Enter 1 if you have had any transplants and 0 otherwise"))
+    e = st.number_input("Enter 1 if you have any chronic diseases and 0 otherwise"))
+    f = st.number_input(input("Enter your height in centimeters"))
+    g = st.number_input("Enter your weight in kilograms"))
+    h = st.number_input("Enter 1 if you have any allergies and 0 otherwise"))
+    i = st.number_input("Enter 1 if you have a family history of cancer and 0 otherwise"))
+    j = st.number_input("Enter the number of major surgeries you have undergone"))
 
     result =""
 
 
-    if st.button("Predict Insurance Premium Price"):
-      result = prediction(a,b,c,d,e,f,g,h,i,j)
-      st.success('The Insurance Premium Price is {}'.format(result))
+  if st.button("Predict Insurance Premium Price"):
+    result = prediction(a,b,c,d,e,f,g,h,i,j)
+    st.success('The Insurance Premium Price is {}'.format(result))
 
 if __name__=='__main__':
     main()
